@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buyer Avatar – Meta Ads Algeria</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    :root {
+      --bg: #0c0c0e;
+      --surface: #131316;
+      --surface2: #19191e;
+      --border: rgba(255,255,255,0.07);
+      --border-hover: rgba(255,255,255,0.12);
+      --accent: #e8ff47;
+      --accent2: #ff6b35;
+      --text: #ececf0;
+      --text-secondary: #b0b0bc;
+      --muted: #6e6e80;
+      --input-bg: #18181d;
+      --radius: 10px;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.6;
+      letter-spacing: -0.01em;
+      min-height: 100vh;
+      padding: 48px 20px 80px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .page-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    header {
+      margin-bottom: 52px;
+    }
+
+    .header-tag {
+      font-family: var(--font);
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(232, 255, 71, 0.06);
+      border: 1px solid rgba(232, 255, 71, 0.18);
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 6px;
+      margin-bottom: 18px;
+    }
+
+    header h1 {
+      font-family: var(--font);
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    header h1 span {
+      color: var(--accent);
+    }
+
+    header p {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 14.5px;
+      font-weight: 400;
+      line-height: 1.65;
+      max-width: 460px;
+      letter-spacing: 0;
+    }
+
+    .header-line {
+      width: 40px;
+      height: 2.5px;
+      background: var(--accent);
+      margin-top: 22px;
+      border-radius: 2px;
+    }
+
+    /* Progress bar */
+    .progress-bar-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(12, 12, 14, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 12px 0 16px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .progress-label {
+      font-family: var(--font);
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .progress-pct {
+      font-family: var(--font);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .progress-track {
+      height: 3px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 3px;
+      width: 0%;
+      transition: width 0.4s var(--transition);
+    }
+
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .section:hover {
+      border-color: var(--border-hover);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface2);
+    }
+
+    .section-num {
+      font-family: var(--font);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--bg);
+      background: var(--accent);
+      min-width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+
+    .section-num.new {
+      background: var(--accent2);
+    }
+
+    .section-title {
+      font-family: var(--font);
+      font-size: 14.5px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .section-badge {
+      margin-left: auto;
+      font-family: var(--font);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      background: rgba(255, 107, 53, 0.08);
+      border: 1px solid rgba(255, 107, 53, 0.2);
+      padding: 3px 10px;
+      border-radius: 5px;
+    }
+
+    .section-body {
+      padding: 22px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .field-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .field-group.full {
+      grid-template-columns: 1fr;
+    }
+
+    .field-group.three {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @media (max-width: 520px) {
+
+      .field-group,
+      .field-group.three {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .field label {
+      font-size: 11.5px;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      background: var(--input-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 13.5px;
+      font-weight: 400;
+      padding: 11px 14px;
+      outline: none;
+      transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+      width: 100%;
+      resize: none;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: rgba(232, 255, 71, 0.4);
+      background: #1a1a20;
+      box-shadow: 0 0 0 3px rgba(232, 255, 71, 0.06);
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: #3d3d4a;
+      font-weight: 400;
+    }
+
+    .field select option {
+      background: #1f1f26;
+    }
+
+    .field textarea {
+      min-height: 72px;
+      line-height: 1.6;
+    }
+
+    /* Checkbox pill group */
+    .pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill-opt {
+      position: relative;
+    }
+
+    .pill-opt input[type="checkbox"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .pill-opt label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 15px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--muted);
+      background: var(--input-bg);
+      transition: all var(--transition);
+      user-select: none;
+    }
+
+    .pill-opt input:checked+label {
+      border-color: var(--accent);
+      color: var(--bg);
+      background: var(--accent);
+      font-weight: 600;
+    }
+
+    .pill-opt label:hover {
+      border-color: #555;
+      color: var(--text);
+    }
+
+    .awareness-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .awareness-opt {
+      position: relative;
+    }
+
+    .awareness-opt input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .awareness-opt label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--muted);
+      background: var(--input-bg);
+      transition: all var(--transition);
+    }
+
+    .awareness-opt input:checked+label {
+      border-color: var(--accent);
+      color: var(--bg);
+      background: var(--accent);
+      font-weight: 600;
+    }
+
+    .awareness-opt label:hover {
+      border-color: #555;
+      color: var(--text);
+    }
+
+    .awareness-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: currentColor;
+      flex-shrink: 0;
+    }
+
+    .objection-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .objection-item {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .objection-prefix {
+      font-size: 12px;
+      color: var(--accent2);
+      font-weight: 500;
+      white-space: nowrap;
+      min-width: 110px;
+      font-style: italic;
+    }
+
+    .objection-item input {
+      flex: 1;
+      background: var(--input-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 13.5px;
+      padding: 11px 14px;
+      outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .objection-item input:focus {
+      border-color: var(--accent2);
+      box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.08);
+    }
+
+    .objection-item input::placeholder {
+      color: #3d3d4a;
+    }
+
+    /* Section hint */
+    .section-hint {
+      font-size: 12.5px;
+      color: var(--muted);
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.55;
+      background: rgba(232, 255, 71, 0.03);
+      border-left: 2px solid rgba(232, 255, 71, 0.15);
+      padding: 10px 14px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 4px;
+    }
+
+    .trigger-wrap {
+      background: linear-gradient(135deg, rgba(232, 255, 71, 0.04) 0%, rgba(255, 107, 53, 0.03) 100%);
+      border: 1px solid rgba(232, 255, 71, 0.12);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 28px;
+    }
+
+    .trigger-label {
+      font-family: var(--font);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .trigger-label::before {
+      content: '🎯';
+      font-size: 14px;
+    }
+
+    .trigger-sentence {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 15px;
+      line-height: 2.2;
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .trigger-sentence span {
+      color: var(--muted);
+    }
+
+    .trigger-sentence input {
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid var(--accent);
+      color: var(--accent);
+      font-family: var(--font);
+      font-size: 15px;
+      font-style: italic;
+      font-weight: 500;
+      outline: none;
+      padding: 2px 6px;
+      min-width: 200px;
+      flex: 1;
+    }
+
+    .trigger-sentence input::placeholder {
+      color: rgba(232, 255, 71, 0.3);
+    }
+
+    .submit-row {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .btn {
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 13px 28px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all var(--transition);
+      border: none;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--muted);
+      color: var(--text);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary:hover {
+      background: #f2ff6e;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(232, 255, 71, 0.25);
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--accent);
+      color: var(--bg);
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(232, 255, 71, 0.2);
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+      pointer-events: none;
+      z-index: 999;
+      white-space: nowrap;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .spinner {
+      width: 14px;
+      height: 14px;
+      border: 2px solid rgba(13, 13, 15, 0.3);
+      border-top-color: var(--bg);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      display: none;
+    }
+
+    .btn-primary.loading .spinner {
+      display: block;
+    }
+
+    .btn-primary.loading .btn-label {
+      opacity: 0.6;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-wrap">
+
+    <header>
+      <div class="header-tag">Meta Ads · Algeria · 2026</div>
+      <h1>Buyer Avatar<br /><span>Profiling Sheet</span></h1>
+      <p>Build a precise customer profile to craft high-converting Meta ad campaigns across all 69 wilayas.</p>
+      <div class="header-line"></div>
+    </header>
+
+    <!-- PROGRESS BAR -->
+    <div class="progress-bar-wrap">
+      <div class="progress-meta">
+        <span class="progress-label">Profile Completion</span>
+        <span class="progress-pct" id="progressPct">0%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <!-- 01 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-title">Basic Information</div>
+      </div>
+      <div class="section-body">
+        <div class="field-group">
+          <div class="field"><label>Avatar Name (Algerian name)</label><input id="f_name" type="text"
+              placeholder="e.g. Amira Benali" /></div>
+          <div class="field"><label>Age</label>
+            <select id="f_age">
+              <option value="">Select…</option>
+              <option>18-25</option>
+              <option>25-40</option>
+              <option>40-62</option>
+              <option>All</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-group">
+          <div class="field"><label>Gender</label>
+            <select id="f_gender">
+              <option value="">Select…</option>
+              <option>Both</option>
+              <option>Female</option>
+              <option>Male</option>
+            </select>
+          </div>
+          <div class="field"><label>City / Wilaya</label>
+            <select id="f_city">
+              <option value="">Select…</option>
+              <option>West</option>
+              <option>East</option>
+              <option>Sud</option>
+              <option>North</option>
+              <option>All Algeria</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-group">
+          <div class="field"><label>Marital Status</label>
+            <select id="f_marital">
+              <option value="">Select…</option>
+              <option>Engaged / Future Married</option>
+              <option>Newly Married</option>
+              <option>Married</option>
+              <option>All</option>
+            </select>
+          </div>
+          <div class="field"><label>Children</label><input id="f_children" type="text"
+              placeholder="Yes / No · how many" /></div>
+        </div>
+        <div class="field-group">
+          <div class="field"><label>Occupation</label><input id="f_job" type="text"
+              placeholder="Not job-specific (high-ticket buyer)" /></div>
+          <div class="field"><label>Monthly Income Range</label>
+            <select id="f_income">
+              <option value="">Select…</option>
+              <option>Medium</option>
+              <option>High</option>
+              <option>Medium to High</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-group">
+          <div class="field"><label>Education Level</label>
+            <select id="f_education">
+              <option value="">Select…</option>
+              <option>Middle School</option>
+              <option>High School / Baccalaureate</option>
+              <option>University (Licence)</option>
+              <option>Master / Engineer</option>
+              <option>Doctorate</option>
+              <option>No formal education</option>
+            </select>
+          </div>
+          <div class="field"><label>Neighborhood Type</label>
+            <select id="f_area_type">
+              <option value="">Select…</option>
+              <option>Urban centre (capital / large city)</option>
+              <option>Suburban / périphérie</option>
+              <option>Small town (chef-lieu de daïra)</option>
+              <option>Rural / village</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-group">
+          <div class="field"><label>Primary Language Used Daily</label>
+            <select id="f_language">
+              <option value="">Select…</option>
+              <option>Darija (Algerian Arabic)</option>
+              <option>French</option>
+              <option>Modern Standard Arabic</option>
+              <option>Tamazight / Kabyle</option>
+              <option>Mix Darija + French</option>
+            </select>
+          </div>
+          <div class="field"><label>Housing Situation</label>
+            <select id="f_housing">
+              <option value="">Select…</option>
+              <option>Lives with family (parents)</option>
+              <option>Lives with spouse only</option>
+              <option>Lives with spouse + children</option>
+              <option>Renting independently</option>
+              <option>Owns home</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-title">Daily Life Snapshot</div>
+      </div>
+      <div class="section-body">
+        <div class="field full"><label>Typical day</label><textarea id="f_day"
+            placeholder="Morning routine, work, evenings…"></textarea></div>
+        <div class="field full"><label>Daily stressors</label><textarea id="f_stress"
+            placeholder="What keeps them up at night or drains their energy?"></textarea></div>
+        <div class="field-group">
+          <div class="field"><label>Free time activities</label><input id="f_free" type="text"
+              placeholder="Hobbies, outings, habits…" /></div>
+          <div class="field"><label>Facebook / Instagram pages followed</label><input id="f_pages" type="text"
+              placeholder="Niche pages, influencers…" /></div>
+        </div>
+        <div class="field-group">
+          <div class="field"><label>Do they watch Reels?</label>
+            <select id="f_reels">
+              <option value="">Select…</option>
+              <option>Yes – regularly</option>
+              <option>Yes – occasionally</option>
+              <option>No</option>
+            </select>
+          </div>
+          <div class="field"><label>Primary Device Used</label>
+            <select id="f_device">
+              <option value="">Select…</option>
+              <option>Smartphone only</option>
+              <option>Mostly smartphone, sometimes PC</option>
+              <option>Mostly PC / tablet</option>
+              <option>Equal mix</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-group">
+          <div class="field"><label>Peak Online Hours</label>
+            <select id="f_peak_hours">
+              <option value="">Select…</option>
+              <option>Early morning (6–9 AM)</option>
+              <option>Midday (12–2 PM)</option>
+              <option>Afternoon (3–6 PM)</option>
+              <option>Evening (7–10 PM)</option>
+              <option>Late night (10 PM+)</option>
+              <option>Spread throughout day</option>
+            </select>
+          </div>
+          <div class="field"><label>Platforms Used Most</label><input id="f_platforms" type="text"
+              placeholder="Facebook, Instagram, TikTok, YouTube…" /></div>
+        </div>
+        <div class="field full"><label>Preferred Content Format</label>
+          <div class="pill-group">
+            <div class="pill-opt"><input type="checkbox" id="cf1" value="Short Reels / TikTok" /><label for="cf1">Short
+                Reels / TikTok</label></div>
+            <div class="pill-opt"><input type="checkbox" id="cf2" value="Long-form video" /><label for="cf2">Long-form
+                video</label></div>
+            <div class="pill-opt"><input type="checkbox" id="cf3" value="Photos / Carousels" /><label for="cf3">Photos /
+                Carousels</label></div>
+            <div class="pill-opt"><input type="checkbox" id="cf4" value="Stories" /><label for="cf4">Stories</label>
+            </div>
+            <div class="pill-opt"><input type="checkbox" id="cf5" value="Text posts" /><label for="cf5">Text
+                posts</label></div>
+            <div class="pill-opt"><input type="checkbox" id="cf6" value="Live streams" /><label for="cf6">Live
+                streams</label></div>
+          </div>
+        </div>
+        <div class="field full"><label>Influencers / Accounts They Trust</label><input id="f_influencers" type="text"
+            placeholder="Specific names, page types, or content categories…" /></div>
+      </div>
+    </div>
+
+    <!-- 03 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-title">Core Problem</div>
+      </div>
+      <div class="section-body">
+        <div class="field full"><label>Main problem (be very specific)</label><textarea id="f_problem"
+            placeholder="Describe the exact pain point in their own words…"></textarea></div>
+        <div class="field-group">
+          <div class="field"><label>How long have they had it?</label><input id="f_duration" type="text"
+              placeholder="e.g. 2 years, since marriage…" /></div>
+          <div class="field"><label>When do they feel it most?</label><input id="f_when" type="text"
+              placeholder="Morning / night / at work / with family…" /></div>
+        </div>
+        <div class="field full"><label>What frustrates them most about it?</label><textarea id="f_frustration"
+            placeholder="The specific friction or recurring failure point…"></textarea></div>
+        <div class="field full"><label>What makes the problem worse?</label><input id="f_worse" type="text"
+            placeholder="Triggers, environments, relationships…" /></div>
+        <div class="field full"><label>How do they describe the problem to others?</label><input id="f_describe"
+            type="text" placeholder="Their exact words, slang, tone — in Darija or French if applicable…" /></div>
+      </div>
+    </div>
+
+    <!-- 04 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-title">Emotional Layer</div>
+      </div>
+      <div class="section-body">
+        <div class="field full"><label>How does this problem make them feel?</label><textarea id="f_feelings"
+            placeholder="Emotions: shame, frustration, anxiety, anger…"></textarea></div>
+        <div class="field-group">
+          <div class="field"><label>What are they ashamed of?</label><textarea id="f_shame"
+              placeholder="Deep embarrassment, hidden pain…"></textarea></div>
+          <div class="field"><label>What do they secretly envy in others?</label><textarea id="f_envy"
+              placeholder="What do they wish they had?"></textarea></div>
+        </div>
+        <div class="field full"><label>What do they fear if they don't fix it?</label><input id="f_fear" type="text"
+            placeholder="Worst-case scenario in their mind…" /></div>
+        <div class="field full"><label>Negative self-talk / limiting beliefs</label><textarea id="f_selftalk"
+            placeholder='"I am not good enough…" "Everyone else can do it…"'></textarea></div>
+        <div class="field full"><label>Core identity they want to protect or achieve</label><input id="f_identity"
+            type="text" placeholder="e.g. good mother, successful man, respected in the family…" /></div>
+      </div>
+    </div>
+
+    <!-- 05 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">05</div>
+        <div class="section-title">Past Failed Solutions</div>
+      </div>
+      <div class="section-body">
+        <div class="field full"><label>What have they already tried?</label><textarea id="f_tried"
+            placeholder="Products, methods, advice, YouTube, family suggestions…"></textarea></div>
+        <div class="field full"><label>Why didn't it work?</label><textarea id="f_why_failed"
+            placeholder="Root cause of failure – too complex, no results, wrong fit…"></textarea></div>
+        <div class="field-group">
+          <div class="field"><label>What disappointed them?</label><input id="f_disappointed" type="text"
+              placeholder="False promises, slow results…" /></div>
+          <div class="field"><label>Do they blame themselves or the product?</label>
+            <select id="f_blame">
+              <option value="">Select…</option>
+              <option>Themselves</option>
+              <option>The product</option>
+              <option>Both equally</option>
+              <option>The seller / brand</option>
+            </select>
+          </div>
+        </div>
+        <div class="field full"><label>Money / time already spent on failed solutions</label><input id="f_spent"
+            type="text" placeholder="e.g. 15,000 DZD and 6 months wasted…" /></div>
+      </div>
+    </div>
+
+    <!-- 06 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">06</div>
+        <div class="section-title">Desired Outcome</div>
+      </div>
+      <div class="section-body">
+        <div class="field full"><label>Ideal transformation</label><textarea id="f_transform"
+            placeholder="The exact before to after they dream of…"></textarea></div>
+        <div class="field full"><label>How would their life improve?</label><textarea id="f_improve"
+            placeholder="Practical, daily-life improvements…"></textarea></div>
+        <div class="field-group">
+          <div class="field"><label>How would they feel?</label><input id="f_feel_after" type="text"
+              placeholder="Proud, free, confident, relieved…" /></div>
+          <div class="field"><label>What would people say about them?</label><input id="f_social" type="text"
+              placeholder="Social recognition they crave…" /></div>
+        </div>
+        <div class="field full"><label>Changes in confidence / money / relationships</label><textarea id="f_changes"
+            placeholder="Specific impact across key life areas…"></textarea></div>
+        <div class="field full"><label>What does success look like in 3 months?</label><input id="f_success_3m"
+            type="text" placeholder="Concrete, measurable outcome they can visualize…" /></div>
+      </div>
+    </div>
+
+    <!-- 07 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">07</div>
+        <div class="section-title">Buying Behavior</div>
+      </div>
+      <div class="section-body">
+        <div class="field-group">
+          <div class="field"><label>Price sensitivity</label>
+            <select id="f_price_sens">
+              <option value="">Select…</option>
+              <option>Low – price is not a concern</option>
+              <option>Medium – needs justification</option>
+              <option>High – very price-conscious</option>
+            </select>
+          </div>
+          <div class="field"><label>Prefer Cash on Delivery?</label>
+            <select id="f_cod">
+              <option value="">Select…</option>
+              <option>Yes – strongly prefers COD</option>
+              <option>Yes – but open to other</option>
+              <option>No preference</option>
+              <option>No – prefers online payment</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-group">
+          <div class="field"><label>Have they been scammed before?</label>
+            <select id="f_scam">
+              <option value="">Select…</option>
+              <option>Yes – very cautious now</option>
+              <option>Yes – somewhat cautious</option>
+              <option>No</option>
+              <option>Unsure</option>
+            </select>
+          </div>
+          <div class="field"><label>Decision-Making Speed</label>
+            <select id="f_decision_speed">
+              <option value="">Select…</option>
+              <option>Impulsive – buys within minutes</option>
+              <option>Same day – researches briefly</option>
+              <option>1–3 days – compares options</option>
+              <option>1 week+ – heavy researcher</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-group">
+          <div class="field"><label>Who Influences Their Purchase?</label>
+            <select id="f_who_influences">
+              <option value="">Select…</option>
+              <option>Decides alone</option>
+              <option>Spouse / partner</option>
+              <option>Mother / family elder</option>
+              <option>Friends / peer group</option>
+              <option>Online reviews / influencers</option>
+              <option>Multiple sources</option>
+            </select>
+          </div>
+          <div class="field"><label>Preferred Purchase Channel</label>
+            <select id="f_purchase_channel">
+              <option value="">Select…</option>
+              <option>Direct from Facebook / Instagram DM</option>
+              <option>Dedicated e-commerce website</option>
+              <option>Physical store / boutique</option>
+              <option>WhatsApp order</option>
+              <option>Marketplace (Jumia, etc.)</option>
+            </select>
+          </div>
+        </div>
+        <div class="field full"><label>What makes them trust a brand?</label><textarea id="f_trust"
+            placeholder="Reviews, testimonials, guarantees, local presence, packaging…"></textarea></div>
+        <div class="field full"><label>What immediately makes them doubt an ad?</label><textarea id="f_doubt"
+            placeholder="Fake promises, no proof, pushy tone, poor visuals…"></textarea></div>
+        <div class="field full"><label>What offer type converts them best?</label>
+          <div class="pill-group">
+            <div class="pill-opt"><input type="checkbox" id="ot1" value="Discount / promo" /><label for="ot1">Discount /
+                promo</label></div>
+            <div class="pill-opt"><input type="checkbox" id="ot2" value="Free shipping" /><label for="ot2">Free
+                shipping</label></div>
+            <div class="pill-opt"><input type="checkbox" id="ot3" value="Bundle deal" /><label for="ot3">Bundle
+                deal</label></div>
+            <div class="pill-opt"><input type="checkbox" id="ot4" value="Limited stock urgency" /><label
+                for="ot4">Limited stock urgency</label></div>
+            <div class="pill-opt"><input type="checkbox" id="ot5" value="Money-back guarantee" /><label
+                for="ot5">Money-back guarantee</label></div>
+            <div class="pill-opt"><input type="checkbox" id="ot6" value="Free trial / sample" /><label for="ot6">Free
+                trial / sample</label></div>
+            <div class="pill-opt"><input type="checkbox" id="ot7" value="Social proof / results" /><label
+                for="ot7">Social proof / results</label></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 08 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">08</div>
+        <div class="section-title">Main Buying Objections</div>
+      </div>
+      <div class="section-body">
+        <div class="objection-list">
+          <div class="objection-item">
+            <div class="objection-prefix">"Too expensive…"</div><input id="obj1" type="text"
+              placeholder="Complete their thought…" />
+          </div>
+          <div class="objection-item">
+            <div class="objection-prefix">"Won't work…"</div><input id="obj2" type="text"
+              placeholder="Their specific doubt…" />
+          </div>
+          <div class="objection-item">
+            <div class="objection-prefix">"I'm afraid of…"</div><input id="obj3" type="text"
+              placeholder="Risk or fear they imagine…" />
+          </div>
+          <div class="objection-item">
+            <div class="objection-prefix">"What if…"</div><input id="obj4" type="text"
+              placeholder="Worst-case hesitation…" />
+          </div>
+          <div class="objection-item">
+            <div class="objection-prefix">"Family will say…"</div><input id="obj5" type="text"
+              placeholder="Social / family pressure…" />
+          </div>
+          <div class="objection-item">
+            <div class="objection-prefix">"I need to ask…"</div><input id="obj6" type="text"
+              placeholder="Spouse, parent, or peer whose approval they need…" />
+          </div>
+          <div class="objection-item">
+            <div class="objection-prefix">"I don't trust…"</div><input id="obj7" type="text"
+              placeholder="Online shopping, this brand, COD, Algerian sellers…" />
+          </div>
+          <div class="objection-item">
+            <div class="objection-prefix">"Not the right time…"</div><input id="obj8" type="text"
+              placeholder="Timing hesitation — salary, Ramadan, after exams…" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 09 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">09</div>
+        <div class="section-title">Awareness Level</div>
+      </div>
+      <div class="section-body">
+        <div class="awareness-grid">
+          <div class="awareness-opt"><input type="radio" name="awareness" id="aw1" value="Unaware" /><label
+              for="aw1"><span class="awareness-dot"></span>Unaware</label></div>
+          <div class="awareness-opt"><input type="radio" name="awareness" id="aw2" value="Problem Aware" /><label
+              for="aw2"><span class="awareness-dot"></span>Problem Aware</label></div>
+          <div class="awareness-opt"><input type="radio" name="awareness" id="aw3" value="Solution Aware" /><label
+              for="aw3"><span class="awareness-dot"></span>Solution Aware</label></div>
+          <div class="awareness-opt"><input type="radio" name="awareness" id="aw4" value="Product Aware" /><label
+              for="aw4"><span class="awareness-dot"></span>Product Aware</label></div>
+          <div class="awareness-opt"><input type="radio" name="awareness" id="aw5" value="Most Aware" /><label
+              for="aw5"><span class="awareness-dot"></span>Most Aware</label></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">10</div>
+        <div class="section-title">Product Details</div>
+      </div>
+      <div class="section-body">
+        <div class="field-group">
+          <div class="field"><label>Product Name</label><input id="f_product" type="text" placeholder="…" /></div>
+          <div class="field"><label>Price</label><input id="f_pprice" type="text" placeholder="e.g. 4,500 DZD" /></div>
+        </div>
+        <div class="field-group">
+          <div class="field"><label>Payment Method</label><input id="f_payment" type="text"
+              placeholder="COD, BaridiMob, CIB…" /></div>
+          <div class="field"><label>Delivery Time</label><input id="f_delivery" type="text"
+              placeholder="e.g. 3–5 business days" /></div>
+        </div>
+        <div class="field full"><label>Guarantee</label><input id="f_guarantee" type="text"
+            placeholder="Return policy, satisfaction guarantee…" /></div>
+        <div class="field full"><label>Unique Selling Point (USP)</label><textarea id="f_usp"
+            placeholder="What makes this product truly different?"></textarea></div>
+        <div class="field full"><label>Why it's better than competitors</label><textarea id="f_vs"
+            placeholder="Specific advantages over alternatives available in Algeria…"></textarea></div>
+        <div class="field-group">
+          <div class="field"><label>Testimonials available?</label>
+            <select id="f_testimonials">
+              <option value="">Select…</option>
+              <option>Yes</option>
+              <option>No</option>
+              <option>In progress</option>
+            </select>
+          </div>
+          <div class="field"><label>Before / After available?</label>
+            <select id="f_ba">
+              <option value="">Select…</option>
+              <option>Yes</option>
+              <option>No</option>
+              <option>In progress</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-group">
+          <div class="field"><label>Product Category</label>
+            <select id="f_category">
+              <option value="">Select…</option>
+              <option>Health &amp; Wellness</option>
+              <option>Beauty &amp; Skincare</option>
+              <option>Fashion &amp; Clothing</option>
+              <option>Home &amp; Décor</option>
+              <option>Baby &amp; Kids</option>
+              <option>Food &amp; Nutrition</option>
+              <option>Digital / Info product</option>
+              <option>Electronics &amp; Accessories</option>
+              <option>Fitness &amp; Sport</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field"><label>Stock Urgency / Scarcity</label>
+            <select id="f_scarcity">
+              <option value="">Select…</option>
+              <option>Yes – limited units available</option>
+              <option>Yes – seasonal / limited time</option>
+              <option>No – always in stock</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11 — NEW -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num new">11</div>
+        <div class="section-title">Ad Creative &amp; Messaging Angles</div>
+        <div class="section-badge">New</div>
+      </div>
+      <div class="section-body">
+        <p class="section-hint">Use this section to brief your creative team and copywriter directly from the avatar
+          data.</p>
+        <div class="field full"><label>Hook / Angle That Would Stop Their Scroll</label><textarea id="f_hook_angle"
+            placeholder="e.g. 'Still covering your arms in summer because of stretch marks?' — lead with their exact pain in their language…"></textarea>
+        </div>
+        <div class="field-group">
+          <div class="field"><label>Ad Language Preference</label>
+            <select id="f_ad_language">
+              <option value="">Select…</option>
+              <option>Darija (Algerian Arabic)</option>
+              <option>French</option>
+              <option>Modern Standard Arabic</option>
+              <option>Mix Darija + French</option>
+              <option>Tamazight</option>
+            </select>
+          </div>
+          <div class="field"><label>Preferred Ad Format</label>
+            <select id="f_ad_format">
+              <option value="">Select…</option>
+              <option>Short Reel (≤15s)</option>
+              <option>Medium Reel (15–60s)</option>
+              <option>Long Reel / video (1–3 min)</option>
+              <option>Single image</option>
+              <option>Carousel</option>
+              <option>Story</option>
+              <option>UGC / testimonial style</option>
+            </select>
+          </div>
+        </div>
+        <div class="field full"><label>Visual Style That Resonates With Them</label><input id="f_visual_style"
+            type="text"
+            placeholder="e.g. authentic before/after, lifestyle/aspirational, minimalist product, family scenes, local Algerian context…" />
+        </div>
+        <div class="field full"><label>CTA That Would Make Them Click</label>
+          <div class="pill-group">
+            <div class="pill-opt"><input type="checkbox" id="cta1" value="Order now" /><label for="cta1">Order
+                now</label></div>
+            <div class="pill-opt"><input type="checkbox" id="cta2" value="Learn more" /><label for="cta2">Learn
+                more</label></div>
+            <div class="pill-opt"><input type="checkbox" id="cta3" value="Get the offer" /><label for="cta3">Get the
+                offer</label></div>
+            <div class="pill-opt"><input type="checkbox" id="cta4" value="Message us" /><label for="cta4">Message
+                us</label></div>
+            <div class="pill-opt"><input type="checkbox" id="cta5" value="See results" /><label for="cta5">See
+                results</label></div>
+            <div class="pill-opt"><input type="checkbox" id="cta6" value="Free trial" /><label for="cta6">Free
+                trial</label></div>
+          </div>
+        </div>
+        <div class="field full"><label>Offer Framing That Converts Them Best</label><input id="f_offer_frame"
+            type="text"
+            placeholder="e.g. 'Limited to 50 orders', 'Free delivery only today', 'As seen in…', discount %, bundle value…" />
+        </div>
+        <div class="field full"><label>Tone of Voice for Ads</label>
+          <select id="f_tone">
+            <option value="">Select…</option>
+            <option>Empathetic &amp; understanding</option>
+            <option>Direct &amp; assertive</option>
+            <option>Educational / informative</option>
+            <option>Humorous / playful</option>
+            <option>Aspirational / inspiring</option>
+            <option>Urgent / FOMO-driven</option>
+            <option>Conversational / friendly</option>
+            <option>Premium / luxury</option>
+          </select>
+        </div>
+        <div class="field full"><label>The One Sentence That Would Make Them Buy</label><textarea id="f_one_sentence"
+            placeholder="Distill the entire avatar into a single copy line that addresses their deepest desire…"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- 12 — NEW -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num new">12</div>
+        <div class="section-title">Competitive Context &amp; Brand Positioning</div>
+        <div class="section-badge">New</div>
+      </div>
+      <div class="section-body">
+        <p class="section-hint">Understand the competitive landscape your avatar already navigates before they see your
+          ad.</p>
+        <div class="field full"><label>Alternatives They're Considering</label><textarea id="f_alternatives"
+            placeholder="Other products, brands, or solutions they're actively comparing…"></textarea></div>
+        <div class="field full"><label>Types of Ads They've Already Seen in This Category</label><textarea
+            id="f_seen_ads"
+            placeholder="Describe the kind of ads that already flood their feed — so you can differentiate…"></textarea>
+        </div>
+        <div class="field full"><label>Why They Would Choose Your Brand Over Alternatives</label><textarea
+            id="f_why_choose"
+            placeholder="Speed, price, trust, results, local presence, guarantee, aesthetics…"></textarea></div>
+        <div class="field-group">
+          <div class="field"><label>Main Competitor(s) in Algeria</label><input id="f_competitors" type="text"
+              placeholder="Brand names or seller types…" /></div>
+          <div class="field"><label>Your Competitive Advantage vs. Them</label><input id="f_advantage" type="text"
+              placeholder="The single thing you do better…" /></div>
+        </div>
+        <div class="field full"><label>Desired Brand Perception</label><input id="f_brand_perception" type="text"
+            placeholder="How you want this avatar to describe your brand to a friend…" /></div>
+        <div class="field full"><label>Positioning Statement (internal)</label><textarea id="f_positioning"
+            placeholder="For [avatar], [your brand] is the only [category] that [unique benefit] because [reason to believe]…"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- DEEP TRIGGER -->
+    <div class="trigger-wrap">
+      <div class="trigger-label">Deep Trigger – Hook Builder</div>
+      <div class="trigger-sentence">
+        <span>"If I could just</span>
+        <input id="f_trigger" type="text" placeholder="…your one core desire…" />
+        <span>, my life would be better."</span>
+      </div>
+    </div>
+
+    <!-- ACTIONS -->
+    <div class="submit-row">
+      <button class="btn btn-ghost" type="button" onclick="resetForm()">Reset</button>
+      <button class="btn btn-primary" id="submitBtn" type="button" onclick="generatePDF()">
+        <div class="spinner" id="spinner"></div>
+        <span class="btn-label">Generate PDF Report</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // ── ALL TRACKED FIELD IDS ──────────────────────────────────────────
+    const ALL_FIELDS = [
+      'f_name', 'f_age', 'f_gender', 'f_city', 'f_marital', 'f_children', 'f_job', 'f_income',
+      'f_education', 'f_area_type', 'f_language', 'f_housing',
+      'f_day', 'f_stress', 'f_free', 'f_pages', 'f_reels', 'f_device', 'f_peak_hours',
+      'f_platforms', 'f_influencers',
+      'f_problem', 'f_duration', 'f_when', 'f_frustration', 'f_worse', 'f_describe',
+      'f_feelings', 'f_shame', 'f_envy', 'f_fear', 'f_selftalk', 'f_identity',
+      'f_tried', 'f_why_failed', 'f_disappointed', 'f_blame', 'f_spent',
+      'f_transform', 'f_improve', 'f_feel_after', 'f_social', 'f_changes', 'f_success_3m',
+      'f_price_sens', 'f_cod', 'f_scam', 'f_decision_speed', 'f_who_influences', 'f_purchase_channel',
+      'f_trust', 'f_doubt',
+      'obj1', 'obj2', 'obj3', 'obj4', 'obj5', 'obj6', 'obj7', 'obj8',
+      'f_product', 'f_pprice', 'f_payment', 'f_delivery', 'f_guarantee', 'f_usp', 'f_vs',
+      'f_testimonials', 'f_ba', 'f_category', 'f_scarcity',
+      'f_hook_angle', 'f_ad_language', 'f_ad_format', 'f_visual_style', 'f_offer_frame',
+      'f_tone', 'f_one_sentence',
+      'f_alternatives', 'f_seen_ads', 'f_why_choose', 'f_competitors', 'f_advantage',
+      'f_brand_perception', 'f_positioning',
+      'f_trigger'
+    ];
+
+    const PILL_GROUPS = ['cf1', 'cf2', 'cf3', 'cf4', 'cf5', 'cf6', 'ot1', 'ot2', 'ot3', 'ot4', 'ot5', 'ot6', 'ot7', 'cta1', 'cta2', 'cta3', 'cta4', 'cta5', 'cta6'];
+
+    function val(id) {
+      const el = document.getElementById(id);
+      if (!el) return '';
+      return (el.value || '').trim() || 'Not filled';
+    }
+    function radioVal(name) {
+      const checked = document.querySelector('input[name="' + name + '"]:checked');
+      return checked ? checked.value : 'Not selected';
+    }
+    function pillVal(ids) {
+      const checked = ids.filter(id => {
+        const el = document.getElementById(id);
+        return el && el.checked;
+      }).map(id => document.getElementById(id).value);
+      return checked.length ? checked.join(', ') : 'Not selected';
+    }
+
+    // ── PROGRESS ──────────────────────────────────────────────────────
+    function updateProgress() {
+      let filled = 0;
+      ALL_FIELDS.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && el.value && el.value.trim() !== '') filled++;
+      });
+      if (radioVal('awareness') !== 'Not selected') filled++;
+      PILL_GROUPS.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && el.checked) filled++;
+      });
+      const total = ALL_FIELDS.length + 1 + PILL_GROUPS.length;
+      const pct = Math.round((filled / total) * 100);
+      document.getElementById('progressFill').style.width = pct + '%';
+      document.getElementById('progressPct').textContent = pct + '%';
+    }
+
+    document.querySelectorAll('input, select, textarea').forEach(el => {
+      el.addEventListener('input', updateProgress);
+      el.addEventListener('change', updateProgress);
+    });
+
+    function resetForm() {
+      document.querySelectorAll('input:not([type="radio"]):not([type="checkbox"]), select, textarea').forEach(el => el.value = '');
+      document.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(el => el.checked = false);
+      updateProgress();
+    }
+
+    function showToast(msg, isError) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.style.background = isError ? '#ff6b35' : '#e8ff47';
+      t.style.color = '#0d0d0f';
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 3500);
+    }
+
+    function generatePDF() {
+      if (!window.jspdf) { showToast('PDF library not loaded yet, please wait.', true); return; }
+      const btn = document.getElementById('submitBtn');
+      btn.classList.add('loading');
+      btn.disabled = true;
+      setTimeout(() => {
+        try { buildPDF(); } catch (e) { showToast('Error: ' + e.message, true); console.error(e); }
+        btn.classList.remove('loading');
+        btn.disabled = false;
+      }, 60);
+    }
+
+    function buildPDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF({ unit: 'mm', format: 'a4' });
+      const W = 210, H = 297;
+      const ml = 16, mr = 16, cW = W - ml - mr;
+      let y = 0;
+
+      const C_BG = [13, 13, 15];
+      const C_SURFACE = [27, 27, 32];
+      const C_BORDER = [42, 42, 50];
+      const C_ACCENT = [232, 255, 71];
+      const C_ACCENT2 = [255, 107, 53];
+      const C_WHITE = [240, 240, 242];
+      const C_MUTED = [130, 130, 148];
+      const C_DARK = [20, 20, 24];
+      const LH = 5.0;
+
+      function bg() {
+        doc.setFillColor(...C_BG);
+        doc.rect(0, 0, W, H, 'F');
+        doc.setFillColor(...C_ACCENT);
+        doc.rect(0, 0, 4, H, 'F');
+      }
+      function footer(pageNum) {
+        doc.setFillColor(18, 18, 22);
+        doc.rect(0, H - 14, W, 14, 'F');
+        doc.setTextColor(...C_MUTED);
+        doc.setFontSize(6.5); doc.setFont('helvetica', 'normal');
+        doc.text('Buyer Avatar Profiler · Meta Ads Algeria', ml + 6, H - 5.5);
+        doc.text('Page ' + pageNum + ' · ' + new Date().toLocaleDateString('en-GB'), W - mr, H - 5.5, { align: 'right' });
+      }
+      let pageNum = 1;
+      function newPage() {
+        footer(pageNum); doc.addPage(); pageNum++;
+        bg(); y = 16;
+      }
+      function checkY(need) {
+        if (y + need > H - 20) newPage();
+      }
+
+      // ── COVER ──────────────────────────────────────────────────────
+      bg();
+      doc.setFillColor(20, 24, 8);
+      doc.roundedRect(ml + 6, 22, cW - 6, 60, 4, 4, 'F');
+      doc.setDrawColor(60, 80, 15);
+      doc.roundedRect(ml + 6, 22, cW - 6, 60, 4, 4, 'S');
+      doc.setTextColor(...C_MUTED); doc.setFontSize(7); doc.setFont('helvetica', 'bold');
+      doc.text('META ADS · ALGERIA · 2026', ml + 14, 33);
+      doc.setTextColor(...C_ACCENT); doc.setFontSize(26); doc.setFont('helvetica', 'bold');
+      doc.text('BUYER AVATAR', ml + 14, 46);
+      doc.setTextColor(...C_WHITE); doc.setFontSize(16); doc.setFont('helvetica', 'normal');
+      doc.text('Profiling Sheet', ml + 14, 57);
+      doc.setFillColor(...C_ACCENT);
+      doc.rect(ml + 14, 62, 36, 1.5, 'F');
+      doc.setTextColor(...C_MUTED); doc.setFontSize(8); doc.setFont('helvetica', 'normal');
+      const sub = doc.splitTextToSize('A complete buyer profile for high-converting Meta ad campaigns across all 69 wilayas.', cW - 28);
+      doc.text(sub, ml + 14, 70);
+
+      const coverStats = [
+        ['AVATAR NAME', val('f_name')],
+        ['AGE', val('f_age')],
+        ['GENDER', val('f_gender')],
+        ['WILAYA', val('f_city')],
+        ['INCOME', val('f_income')],
+        ['AWARENESS', radioVal('awareness')],
+      ];
+      const gW = (cW - 10) / 3, gH = 20;
+      coverStats.forEach(([lbl, val2], i) => {
+        const col = i % 3, row = Math.floor(i / 3);
+        const sx = ml + 6 + col * (gW + 5), sy = 96 + row * (gH + 6);
+        doc.setFillColor(...C_DARK);
+        doc.roundedRect(sx, sy, gW, gH, 2.5, 2.5, 'F');
+        doc.setDrawColor(...C_BORDER);
+        doc.roundedRect(sx, sy, gW, gH, 2.5, 2.5, 'S');
+        doc.setFillColor(...C_ACCENT2);
+        doc.roundedRect(sx, sy, 3, gH, 1.5, 1.5, 'F');
+        doc.rect(sx + 1.5, sy, 1.5, gH, 'F');
+        doc.setTextColor(...C_MUTED); doc.setFontSize(6); doc.setFont('helvetica', 'bold');
+        doc.text(lbl, sx + 6, sy + 6.5);
+        doc.setTextColor(...C_WHITE); doc.setFontSize(8); doc.setFont('helvetica', 'normal');
+        const vLines = doc.splitTextToSize(String(val2).substring(0, 30), gW - 8);
+        doc.text(vLines[0] || '', sx + 6, sy + 14);
+      });
+      footer(pageNum);
+
+      // ── CONTENT SECTIONS ──────────────────────────────────────────
+      const sections = [
+        {
+          num: '01', title: 'Basic Information', fields: [
+            ['Avatar Name', val('f_name')], ['Age', val('f_age')],
+            ['Gender', val('f_gender')], ['City / Wilaya', val('f_city')],
+            ['Marital Status', val('f_marital')], ['Children', val('f_children')],
+            ['Occupation', val('f_job')], ['Monthly Income Range', val('f_income')],
+            ['Education Level', val('f_education')], ['Neighborhood Type', val('f_area_type')],
+            ['Primary Language', val('f_language')], ['Housing Situation', val('f_housing')],
+          ]
+        },
+        {
+          num: '02', title: 'Daily Life Snapshot', fields: [
+            ['Typical Day', val('f_day')], ['Daily Stressors', val('f_stress')],
+            ['Free Time Activities', val('f_free')], ['Pages Followed', val('f_pages')],
+            ['Watches Reels?', val('f_reels')], ['Primary Device', val('f_device')],
+            ['Peak Online Hours', val('f_peak_hours')], ['Platforms Used', val('f_platforms')],
+            ['Content Format Preference', pillVal(['cf1', 'cf2', 'cf3', 'cf4', 'cf5', 'cf6'])],
+            ['Influencers They Trust', val('f_influencers')],
+          ]
+        },
+        {
+          num: '03', title: 'Core Problem', fields: [
+            ['Main Problem', val('f_problem')], ['Duration', val('f_duration')],
+            ['When Felt Most', val('f_when')], ['Biggest Frustration', val('f_frustration')],
+            ['What Makes It Worse', val('f_worse')], ['How They Describe It', val('f_describe')],
+          ]
+        },
+        {
+          num: '04', title: 'Emotional Layer', fields: [
+            ['How It Makes Them Feel', val('f_feelings')], ['Ashamed Of', val('f_shame')],
+            ['Secretly Envies', val('f_envy')], ['Fear If Unsolved', val('f_fear')],
+            ['Negative Self-Talk', val('f_selftalk')], ['Core Identity', val('f_identity')],
+          ]
+        },
+        {
+          num: '05', title: 'Past Failed Solutions', fields: [
+            ['What They Tried', val('f_tried')], ['Why It Failed', val('f_why_failed')],
+            ['What Disappointed Them', val('f_disappointed')], ['Who They Blame', val('f_blame')],
+            ['Money / Time Wasted', val('f_spent')],
+          ]
+        },
+        {
+          num: '06', title: 'Desired Outcome', fields: [
+            ['Ideal Transformation', val('f_transform')], ['Life Improvements', val('f_improve')],
+            ['How They Would Feel', val('f_feel_after')], ['Social Recognition', val('f_social')],
+            ['Changes in Life Areas', val('f_changes')], ['Success in 3 Months', val('f_success_3m')],
+          ]
+        },
+        {
+          num: '07', title: 'Buying Behavior', fields: [
+            ['Price Sensitivity', val('f_price_sens')], ['Cash on Delivery', val('f_cod')],
+            ['Previously Scammed?', val('f_scam')], ['Decision Speed', val('f_decision_speed')],
+            ['Who Influences Purchase', val('f_who_influences')], ['Purchase Channel', val('f_purchase_channel')],
+            ['Trust Signals', val('f_trust')], ['Doubt Triggers', val('f_doubt')],
+            ['Offer Types That Convert', pillVal(['ot1', 'ot2', 'ot3', 'ot4', 'ot5', 'ot6', 'ot7'])],
+          ]
+        },
+        {
+          num: '08', title: 'Main Buying Objections', fields: [
+            ['"Too expensive…"', val('obj1')], ['"Won\'t work…"', val('obj2')],
+            ['"I\'m afraid of…"', val('obj3')], ['"What if…"', val('obj4')],
+            ['"Family will say…"', val('obj5')], ['"I need to ask…"', val('obj6')],
+            ['"I don\'t trust…"', val('obj7')], ['"Not the right time…"', val('obj8')],
+          ]
+        },
+        {
+          num: '09', title: 'Awareness Level', fields: [
+            ['Selected Level', radioVal('awareness')],
+          ]
+        },
+        {
+          num: '10', title: 'Product Details', fields: [
+            ['Product Name', val('f_product')], ['Price', val('f_pprice')],
+            ['Payment Method', val('f_payment')], ['Delivery Time', val('f_delivery')],
+            ['Guarantee', val('f_guarantee')], ['Unique Selling Point', val('f_usp')],
+            ['Better Than Competitors', val('f_vs')],
+            ['Testimonials Available?', val('f_testimonials')],
+            ['Before / After Available?', val('f_ba')],
+            ['Product Category', val('f_category')], ['Stock Urgency', val('f_scarcity')],
+          ]
+        },
+        {
+          num: '11', title: 'Ad Creative & Messaging Angles', fields: [
+            ['Hook / Scroll-Stopping Angle', val('f_hook_angle')],
+            ['Ad Language', val('f_ad_language')], ['Preferred Ad Format', val('f_ad_format')],
+            ['Visual Style', val('f_visual_style')],
+            ['CTA Preference', pillVal(['cta1', 'cta2', 'cta3', 'cta4', 'cta5', 'cta6'])],
+            ['Offer Framing', val('f_offer_frame')], ['Tone of Voice', val('f_tone')],
+            ['The One Sentence That Sells', val('f_one_sentence')],
+          ]
+        },
+        {
+          num: '12', title: 'Competitive Context & Brand Positioning', fields: [
+            ['Alternatives Considered', val('f_alternatives')],
+            ['Ads Already Seen', val('f_seen_ads')],
+            ['Why They Would Choose Us', val('f_why_choose')],
+            ['Main Competitor(s)', val('f_competitors')],
+            ['Competitive Advantage', val('f_advantage')],
+            ['Desired Brand Perception', val('f_brand_perception')],
+            ['Positioning Statement', val('f_positioning')],
+          ]
+        },
+      ];
+
+      sections.forEach((section) => {
+        newPage();
+        doc.setFillColor(...C_SURFACE);
+        doc.roundedRect(ml, y, cW, 13, 3, 3, 'F');
+        doc.setFillColor(...C_ACCENT);
+        doc.roundedRect(ml, y, 11, 13, 3, 3, 'F');
+        doc.rect(ml + 7, y, 4, 13, 'F');
+        doc.setTextColor(13, 13, 15); doc.setFontSize(7); doc.setFont('helvetica', 'bold');
+        doc.text(section.num, ml + 2.5, y + 8.5);
+        doc.setTextColor(...C_WHITE); doc.setFontSize(10); doc.setFont('helvetica', 'bold');
+        doc.text(section.title.toUpperCase(), ml + 15, y + 8.5);
+        y += 18;
+
+        section.fields.forEach(([label, value]) => {
+          const vLines = doc.splitTextToSize(String(value), cW - 14);
+          const boxH = Math.max(16, 6 + vLines.length * LH + 5);
+          checkY(boxH + 5);
+          doc.setFillColor(...C_DARK);
+          doc.roundedRect(ml, y, cW, boxH, 2.5, 2.5, 'F');
+          doc.setDrawColor(...C_BORDER);
+          doc.roundedRect(ml, y, cW, boxH, 2.5, 2.5, 'S');
+          doc.setFillColor(...C_ACCENT2);
+          doc.roundedRect(ml, y, 3, boxH, 1.5, 1.5, 'F');
+          doc.rect(ml + 1.5, y, 1.5, boxH, 'F');
+          doc.setTextColor(...C_MUTED); doc.setFontSize(6); doc.setFont('helvetica', 'bold');
+          doc.text(label.toUpperCase(), ml + 7, y + 6);
+          doc.setTextColor(...C_WHITE); doc.setFontSize(8.5); doc.setFont('helvetica', 'normal');
+          doc.text(vLines, ml + 7, y + 6 + LH + 0.5);
+          y += boxH + 5;
+        });
+      });
+
+      // ── DEEP TRIGGER PAGE ─────────────────────────────────────────
+      newPage();
+      doc.setFillColor(...C_SURFACE);
+      doc.roundedRect(ml, y, cW, 13, 3, 3, 'F');
+      doc.setFillColor(...C_ACCENT);
+      doc.roundedRect(ml, y, 11, 13, 3, 3, 'F');
+      doc.rect(ml + 7, y, 4, 13, 'F');
+      doc.setTextColor(13, 13, 15); doc.setFontSize(8); doc.setFont('helvetica', 'bold');
+      doc.text('TG', ml + 2, y + 8.5);
+      doc.setTextColor(...C_WHITE); doc.setFontSize(10); doc.setFont('helvetica', 'bold');
+      doc.text('DEEP TRIGGER – HOOK BUILDER', ml + 15, y + 8.5);
+      y += 20;
+      const trigVal = val('f_trigger');
+      const fullSentence = '"If I could just ' + trigVal + ', my life would be better."';
+      const tLines = doc.splitTextToSize(fullSentence, cW - 20);
+      const tBoxH = Math.max(30, tLines.length * 7 + 18);
+      doc.setFillColor(18, 24, 6);
+      doc.roundedRect(ml, y, cW, tBoxH, 4, 4, 'F');
+      doc.setDrawColor(70, 90, 18);
+      doc.roundedRect(ml, y, cW, tBoxH, 4, 4, 'S');
+      doc.setFillColor(...C_ACCENT);
+      doc.rect(ml, y, 4, tBoxH, 'F');
+      doc.setTextColor(...C_ACCENT); doc.setFontSize(10); doc.setFont('helvetica', 'bolditalic');
+      doc.text(tLines, ml + 10, y + 14, { lineHeightFactor: 1.5 });
+      y += tBoxH + 10;
+
+      // completion summary
+      checkY(22);
+      let filled = ALL_FIELDS.filter(id => {
+        const el = document.getElementById(id);
+        return el && el.value && el.value.trim() !== '';
+      }).length;
+      if (radioVal('awareness') !== 'Not selected') filled++;
+      PILL_GROUPS.forEach(id => { const el = document.getElementById(id); if (el && el.checked) filled++; });
+      const total = ALL_FIELDS.length + 1 + PILL_GROUPS.length;
+      const pct = Math.round((filled / total) * 100);
+      doc.setFillColor(...C_SURFACE);
+      doc.roundedRect(ml, y, cW, 18, 3, 3, 'F');
+      doc.setDrawColor(...C_BORDER);
+      doc.roundedRect(ml, y, cW, 18, 3, 3, 'S');
+      doc.setTextColor(...C_MUTED); doc.setFontSize(7); doc.setFont('helvetica', 'bold');
+      doc.text('COMPLETION', ml + 8, y + 7);
+      doc.setTextColor(...C_WHITE); doc.setFontSize(9); doc.setFont('helvetica', 'bold');
+      doc.text(filled + ' / ' + total + ' fields filled (' + pct + '%)', ml + 8, y + 14);
+      const barX = ml + 90, barY2 = y + 10, barW = cW - 100, barH = 4;
+      doc.setFillColor(...C_BORDER);
+      doc.roundedRect(barX, barY2, barW, barH, 2, 2, 'F');
+      doc.setFillColor(...C_ACCENT);
+      doc.roundedRect(barX, barY2, barW * (pct / 100), barH, 2, 2, 'F');
+
+      footer(pageNum);
+      const name = val('f_name');
+      const slug = (name !== 'Not filled') ? name.replace(/\s+/g, '-').toLowerCase() : 'profile';
+      doc.save('buyer-avatar-' + slug + '.pdf');
+      showToast('PDF downloaded successfully!', false);
+    }
+  </script>
+</body>
+
+</html>
